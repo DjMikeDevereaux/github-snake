@@ -21,7 +21,7 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: DjMikeDevereaux
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SNAKE_TOKEN }}
           outputs: |
             output/github-contribution-grid-snake.svg
             output/github-contribution-grid-snake-dark.svg?palette=github-dark
