@@ -1,34 +1,29 @@
 name: Generate Snake
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *"
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout main branch
-        uses: actions/checkout@v4
-        with:
-          ref: main
 
-      - name: Create output directory
-        run: mkdir -p output
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Generate Snake
         uses: Platane/snk@v3
         with:
           github_user_name: DjMikeDevereaux
-          github_token: ${{ secrets.SNAKE_TOKEN }}
+          github_token: ${{ secrets.SNAKETOKEN }}
           outputs: |
             ./output/github-contribution-grid-snake.svg
             ./output/github-contribution-grid-snake-dark.svg
 
-
-      - name: Push Snake
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Push Snake to output branch
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: output
           build_dir: output
