@@ -16,7 +16,7 @@ jobs:
       - name: Generate Snake
         uses: Platane/snk@v3
         with:
-          user_name: DjMikeDevereaux
+          github_user_name: DjMikeDevereaux
           github_token: ${{ secrets.SNAKETOKEN }}
           outputs: |
             ./output/github-contribution-grid-snake.svg
